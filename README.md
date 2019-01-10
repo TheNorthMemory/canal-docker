@@ -6,13 +6,21 @@
 
 ## Usage
 
+version
+
+`docker run --rm thenorthmemory/canal:1.1.2-alpine version`
+
+help
+
+`docker run --rm thenorthmemory/canal:1.1.2-alpine help`
+
 canal-deployer
 
-`docker run --rm -w /alibaba/canal-deployer thenorthmemory/canal:1.1.2-alpine java com.alibaba.otter.canal.deployer.CanalLauncher`
+`docker run --rm -w /alibaba/canal-deployer thenorthmemory/canal:1.1.2-alpine deployer`
 
 canal-adapter
 
-`docker run --rm -w /alibaba/canal-adapter thenorthmemory/canal:1.1.2-alpine java com.alibaba.otter.canal.adapter.launcher.CanalAdapterApplication`
+`docker run --rm -w /alibaba/canal-adapter thenorthmemory/canal:1.1.2-alpine adapter`
 
 ## License
 
