@@ -28,16 +28,16 @@ RUN set -ex \
     echo '  -d | -deployer | deployer)'; \
     echo '    exec java com.alibaba.otter.canal.deployer.CanalLauncher'; \
     echo '  ;;'; \
-    echo '  -h | -help | help)'; \
-    echo '    echo "usage: [[-][[a]dapter]|[[d]eployer]|[[h]elp]|[[v]ersion]]"'; \
-    echo '    echo ""'; \
-    echo '    echo "  adapter: launch the canal adapter"'; \
-    echo '    echo "  deployer: launch the canal deployer"'; \
-    echo '    echo "  help: display this manual"'; \
-    echo '    echo "  version: display this build version"'; \
-    echo '  ;;'; \
     echo '  -v | -version | version)'; \
     echo '    echo "canal version: ${CANAL_VERSION} on java-${JAVA_VERSION}"'; \
+    echo '  ;;'; \
+    echo '  *)'; \
+    echo '    echo "usage: [[-][[a]dapter]|[[d]eployer]|[[v]ersion]]"'; \
+    echo '    echo ""'; \
+    echo '    echo "  adapter: launch the canal adapter, the workdir must be located in /alibaba/canal-adapter"'; \
+    echo '    echo "  deployer: launch the canal deployer, the workdir must be located in /alibaba/canal-deployer"'; \
+    echo '    echo "  version: display this build version"'; \
+    echo '    echo "  default shown this usage manual"'; \
     echo '  ;;'; \
     echo 'esac'; \
   } > /alibaba/canal \
