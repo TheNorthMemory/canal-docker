@@ -17,7 +17,9 @@ RUN set -ex \
   && wget ${CANAL_RELEASE}/canal-${CANAL_VERSION}/canal.deployer-${CANAL_VERSION/-*/-SNAPSHOT}.tar.gz -O- | tar -xzvC /alibaba/canal-deployer \
   && sed -i 's@\(<appender-ref\s*ref\s*=\)"\(.*\)"\s*\(/>\)@\1"STDOUT"\3@' /alibaba/canal-deployer/conf/logback.xml \
   && sed -i '$!N;/^\(.*\)\n\1$/!P;D' /alibaba/canal-deployer/conf/logback.xml \
-  && echo "canal.deployer-${CANAL_VERSION} downloaded!" \
+  && echo "canal.deployer-${CANAL_VERSION} downloaded!"
+
+RUN set -ex \
   && { \
     echo '#!/bin/sh'; \
     echo ''; \
@@ -37,11 +39,13 @@ RUN set -ex \
     echo '    echo "  adapter: launch the canal adapter, the workdir must be located in /alibaba/canal-adapter"'; \
     echo '    echo "  deployer: launch the canal deployer, the workdir must be located in /alibaba/canal-deployer"'; \
     echo '    echo "  version: display this build version"'; \
-    echo '    echo "  default shown this usage manual"'; \
+    echo '    echo ""'; \
+    echo '    echo "shown this usage manual default"'; \
     echo '  ;;'; \
     echo 'esac'; \
   } > /alibaba/canal \
-  && chmod +x /alibaba/canal
+  && chmod +x /alibaba/canal \
+  && /alibaba/canal version && /alibaba/canal help
 
 ENTRYPOINT ["/alibaba/canal"]
 
