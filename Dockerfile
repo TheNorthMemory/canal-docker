@@ -1,12 +1,13 @@
 FROM openjdk:8-jdk-alpine
 
+ARG CANAL_RELEASE="https://github.com/alibaba/canal/releases/download"
 ARG CANAL_VERSION="1.1.2"
 
 LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" canal_version="${CANAL_VERSION}"
 
 ENV LANG=en_US.UTF-8 \
   CLASSPATH=./conf:./lib:./conf/*:./lib/*:$CLASSPATH \
-  CANAL_RELEASE=https://github.com/alibaba/canal/releases/download \
+  CANAL_RELEASE="${CANAL_RELEASE}" \
   CANAL_VERSION="${CANAL_VERSION}"
 
 RUN set -ex \

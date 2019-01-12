@@ -1,5 +1,7 @@
 # [alibaba/canal](https://github.com/alibaba/canal) in docker
 
+[Dockerfile based on openjdk:8-jdk-alpine](https://github.com/TheNorthMemory/canal-docker/blob/master/Dockerfile)
+
 ## Build
 
 `docker build --build-arg CANAL_VERSION=1.1.2 --tag thenorthmemory/canal:1.1.2-alpine .`
