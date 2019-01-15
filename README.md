@@ -1,5 +1,10 @@
 # [alibaba/canal](https://github.com/alibaba/canal) in docker
 
+[![](https://img.shields.io/docker/automated/thenorthmemory/canal.svg)](https://hub.docker.com/r/thenorthmemory/canal)
+[![](https://img.shields.io/docker/pulls/thenorthmemory/canal.svg)](https://hub.docker.com/r/thenorthmemory/canal)
+[![](https://img.shields.io/github/last-commit/thenorthmemory/canal-docker.svg)](https://github.com/TheNorthMemory/canal-docker)
+[![](https://img.shields.io/github/repo-size/thenorthmemory/canal-docker.svg)](https://github.com/TheNorthMemory/canal-docker)
+
 [Dockerfile based on openjdk:8-jdk-alpine](https://github.com/TheNorthMemory/canal-docker/blob/master/Dockerfile)
 
 ## Build
