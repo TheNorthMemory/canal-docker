@@ -26,10 +26,10 @@ RUN set -ex \
     echo ''; \
     echo 'case ${@} in'; \
     echo '  -a | -adapter | adapter)'; \
-    echo '    exec java com.alibaba.otter.canal.adapter.launcher.CanalAdapterApplication'; \
+    echo '    exec java ${JAVA_OPTS} com.alibaba.otter.canal.adapter.launcher.CanalAdapterApplication'; \
     echo '  ;;'; \
     echo '  -d | -deployer | deployer)'; \
-    echo '    exec java com.alibaba.otter.canal.deployer.CanalLauncher'; \
+    echo '    exec java ${JAVA_OPTS} com.alibaba.otter.canal.deployer.CanalLauncher'; \
     echo '  ;;'; \
     echo '  -v | -version | version)'; \
     echo '    echo "canal version: ${CANAL_VERSION} on java-${JAVA_VERSION}"'; \
