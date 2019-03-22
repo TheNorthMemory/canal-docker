@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
 ARG CANAL_RELEASE="https://github.com/alibaba/canal/releases/download"
-ARG CANAL_VERSION="1.1.2"
+ARG CANAL_VERSION="1.1.3-alpha-2"
 
 LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" canal_version="${CANAL_VERSION}"
 
