@@ -9,25 +9,25 @@
 
 ## Build
 
-`docker build --build-arg CANAL_VERSION=1.1.3-alpha-2 --tag thenorthmemory/canal:1.1.3-alpha-2-alpine .`
+`docker build --build-arg CANAL_VERSION=1.1.3-alpha-3 --tag thenorthmemory/canal:1.1.3-alpha-3-alpine .`
 
 ## Usage
 
 version
 
-`docker run --rm thenorthmemory/canal:1.1.3-alpha-2-alpine version`
+`docker run --rm thenorthmemory/canal:1.1.3-alpha-3-alpine version`
 
 help
 
-`docker run --rm thenorthmemory/canal:1.1.3-alpha-2-alpine help`
+`docker run --rm thenorthmemory/canal:1.1.3-alpha-3-alpine help`
 
 canal-deployer
 
-`docker run --rm -w /alibaba/canal-deployer thenorthmemory/canal:1.1.3-alpha-2-alpine deployer`
+`docker run --rm -w /alibaba/canal-deployer thenorthmemory/canal:1.1.3-alpha-3-alpine deployer`
 
 canal-adapter
 
-`docker run --rm -w /alibaba/canal-adapter thenorthmemory/canal:1.1.3-alpha-2-alpine adapter`
+`docker run --rm -w /alibaba/canal-adapter thenorthmemory/canal:1.1.3-alpha-3-alpine adapter`
 
 ## License
 
