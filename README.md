@@ -9,7 +9,7 @@
 
 ## Build
 
-`docker build --build-arg CANAL_VERSION=1.1.3-alpha-2 --tag thenorthmemory/canal:1.1.2-alpine .`
+`docker build --build-arg CANAL_VERSION=1.1.3-alpha-2 --tag thenorthmemory/canal:1.1.3-alpha-2-alpine .`
 
 ## Usage
 
