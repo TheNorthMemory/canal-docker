@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
 ARG CANAL_RELEASE="https://github.com/alibaba/canal/releases/download"
-ARG CANAL_VERSION="1.1.3-alpha-3"
+ARG CANAL_VERSION="1.1.3"
 
 LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" canal_version="${CANAL_VERSION}"
 
@@ -52,4 +52,4 @@ ENTRYPOINT ["/alibaba/canal"]
 
 EXPOSE 11111 11112 8081
 
-STOPSIGNAL SIGQUIT
+STOPSIGNAL SIGTERM
