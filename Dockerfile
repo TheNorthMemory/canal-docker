@@ -1,12 +1,13 @@
 FROM maven:3.6.1-jdk-8-alpine as builder
 
+ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
 ARG GIT_SOURCE_BRANCH="master"
 
 WORKDIR /canal
 
 RUN set -ex \
   && apk --no-cache add git \
-  && git clone --branch ${GIT_SOURCE_BRANCH} --depth 1 --single-branch https://github.com/alibaba/canal.git /canal \
+  && git clone --branch ${GIT_SOURCE_BRANCH} --depth 1 --single-branch ${GIT_SOURCE_REPO} /canal \
   && ls -al . \
   && dos2unix \
       ./pom.xml \
@@ -66,12 +67,16 @@ RUN set -ex \
 
 FROM openjdk:8-jdk-alpine
 
+ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
 ARG GIT_SOURCE_BRANCH="master"
 
-LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" canal_git_source="${GIT_SOURCE_BRANCH}"
+LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" \
+  canal_git_repo="${GIT_SOURCE_REPO}" \
+  canal_git_branch="${GIT_SOURCE_BRANCH}"
 
 ENV LANG=en_US.UTF-8 \
   CLASSPATH=./conf:./lib:./conf/*:./lib/*:$CLASSPATH \
+  CANAL_GIT_REPO=${GIT_SOURCE_REPO} \
   CANAL_GIT_BRANCH=${GIT_SOURCE_BRANCH}
 
 COPY --from=builder /canal/canal /canal/LICENSE.txt /canal/RELEASE.txt /canal/README.md /alibaba/
@@ -80,4 +85,5 @@ COPY --from=builder /canal/target/canal-adapter /alibaba/canal-adapter/
 
 ENTRYPOINT ["/alibaba/canal"]
 
+#11111=canal-deployer;11112=metrics;8081=canal-adapter
 EXPOSE 11111 11112 8081

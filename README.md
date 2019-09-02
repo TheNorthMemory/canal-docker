@@ -14,7 +14,14 @@
 
 ## Build
 
-`docker build --build-arg GIT_SOURCE_BRANCH=master --tag thenorthmemory/canal:latest-alpine .`
+command
+
+`docker build --tag thenorthmemory/canal:latest-alpine .`
+
+optional arguments
+
+- `--build-arg GIT_SOURCE_REPO=https://github.com/alibaba/canal.git`
+- `--build-arg GIT_SOURCE_BRANCH=master`
 
 ## Usage
 
