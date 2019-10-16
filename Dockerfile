@@ -1,7 +1,7 @@
 FROM maven:3.6.1-jdk-8-alpine as builder
 
 ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
-ARG GIT_SOURCE_BRANCH="canal-1.1.4"
+ARG GIT_SOURCE_BRANCH="master"
 
 WORKDIR /canal
 
@@ -47,7 +47,7 @@ RUN set -ex \
   && export REVISION=`git --git-dir=./.git rev-parse --short --verify HEAD` \
   && sed -i -e "s@\${CANAL_VERSION}@${VERSION} ${REVISION}@" \
       ./canal \
-  && sed -i -e '/<module>example<\/module>$/d;/<module>canal-admin<\/module>$/d' \
+  && sed -i -e '/<module>example<\/module>$/d;/<module>\(canal-\)\?admin<\/module>$/d' \
       ./pom.xml \
   && sed -i -e 's@<finalName>.*</finalName>@<finalName>canal-deployer</finalName>@' \
       ./deployer/pom.xml \
@@ -68,7 +68,7 @@ RUN set -ex \
 FROM openjdk:8-jdk-alpine
 
 ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
-ARG GIT_SOURCE_BRANCH="canal-1.1.4"
+ARG GIT_SOURCE_BRANCH="master"
 
 LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" \
   canal_git_repo="${GIT_SOURCE_REPO}" \
