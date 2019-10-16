@@ -1,7 +1,7 @@
 FROM maven:3.6.1-jdk-8-alpine as builder
 
 ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
-ARG GIT_SOURCE_BRANCH="master"
+ARG GIT_SOURCE_BRANCH="canal-1.1.4"
 
 WORKDIR /canal
 
@@ -68,7 +68,7 @@ RUN set -ex \
 FROM openjdk:8-jdk-alpine
 
 ARG GIT_SOURCE_REPO="https://github.com/alibaba/canal.git"
-ARG GIT_SOURCE_BRANCH="master"
+ARG GIT_SOURCE_BRANCH="canal-1.1.4"
 
 LABEL maintainer="James Zhang <thenorthmemory@dingtalk.com>" \
   canal_git_repo="${GIT_SOURCE_REPO}" \

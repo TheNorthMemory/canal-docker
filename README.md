@@ -21,7 +21,7 @@ command
 optional arguments
 
 - `--build-arg GIT_SOURCE_REPO=https://github.com/alibaba/canal.git`
-- `--build-arg GIT_SOURCE_BRANCH=master`
+- `--build-arg GIT_SOURCE_BRANCH=canal-1.1.4`
 
 ## Usage
 
